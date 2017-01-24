@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import dao.CoursesDAO;
@@ -62,7 +63,7 @@ public class CourseServlet extends HttpServlet {
 				String costTime = request.getParameter("costTime");
 				if(preId != null) {
 					//若停留时间超过4s则认为用户注视有困难
-					if(costTime != null && Integer.parseInt(costTime) > 4000) {
+					if(costTime != null && Double.parseDouble(costTime) > 4000) {
 						try {
 							JSONObject c = new JSONObject();
 							c.put("id", Integer.parseInt(preId));
@@ -73,7 +74,13 @@ public class CourseServlet extends HttpServlet {
 							e.printStackTrace();
 						}
 					}else {
-						outer.println("");
+						try {
+							JSONObject e = new JSONObject();
+							e.put("msg", "停留时间不足4s，不认为是阅读有困难！");
+							outer.println(e.toString());
+						} catch (JSONException e1) {
+							e1.printStackTrace();
+						}
 					}
 				}
 			}

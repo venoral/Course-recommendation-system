@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
+	<filter>
+	    <filter-name>CORSFilter</filter-name>
+	    <filter-class>filter.CORSFilter</filter-class>
+	</filter>
+ 
+	<filter-mapping>
+	    <filter-name>CORSFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<servlet>
 		<servlet-name>CourseServlet</servlet-name>
 		<servlet-class>servlet.CourseServlet</servlet-class>
