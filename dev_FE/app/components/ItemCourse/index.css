@@ -1,0 +1,22 @@
+@charset "utf-8";
+.item {
+	height: 100px;
+	box-sizing: border-box;
+	border: solid .5px #d6cece;
+}
+.item .name {
+	text-align: center;
+}
+.item .info {
+	margin-left: 20px;
+	text-align: justify;
+}
+.gazeCur {
+	border-color: #f75a5a;
+}
+
+.item-course-1 .info,
+.item-course-2 .info,
+.item-course-3 .info{
+	margin-left: 350px;
+}
